@@ -134,7 +134,6 @@ python elastic_net_pipeline_github.py
 - Probability calibration (Platt scaling / isotonic regression) for clinical deployment
 - Gradient boosting (XGBoost/LightGBM) comparison
 - SHAP values for individual patient explainability
-- PostgreSQL integration for scalable data querying
 
 ---
 
