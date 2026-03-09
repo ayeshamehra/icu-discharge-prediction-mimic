@@ -1,0 +1,17 @@
+first_careunit,total_patients,deaths,mortality_rate_pct
+Surgery/Trauma,7,3,42.86
+Intensive Care Unit (ICU),25,9,36.0
+Surgery/Vascular/Intermediate,97,22,22.68
+Neuro Surgical Intensive Care Unit (Neuro SICU),1277,278,21.77
+Medicine,14,3,21.43
+Medical Intensive Care Unit (MICU),12406,1641,13.23
+Coronary Care Unit (CCU),7051,780,11.06
+Medical/Surgical Intensive Care Unit (MICU/SICU),10045,1016,10.11
+Surgical Intensive Care Unit (SICU),9131,814,8.91
+Trauma SICU (TSICU),7831,689,8.8
+PACU,67,3,4.48
+Cardiac Vascular Intensive Care Unit (CVICU),11966,369,3.08
+Neuro Intermediate,4341,36,0.83
+Neuro Stepdown,1106,8,0.72
+Neurology,1,0,0.0
+Med/Surg,1,0,0.0

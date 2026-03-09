@@ -1,0 +1,15 @@
+first_careunit,avg_age,deaths,avg_heart_rate,avg_resp_rate
+Medical Intensive Care Unit (MICU),78.3,960,91.1,22.6
+Medical/Surgical Intensive Care Unit (MICU/SICU),77.9,710,96.2,23.0
+Coronary Care Unit (CCU),79.5,622,88.0,21.8
+Surgical Intensive Care Unit (SICU),79.3,533,86.2,20.4
+Trauma SICU (TSICU),79.5,432,88.7,21.0
+Cardiac Vascular Intensive Care Unit (CVICU),78.7,245,84.3,20.4
+Neuro Surgical Intensive Care Unit (Neuro SICU),77.9,188,81.4,19.9
+Neuro Intermediate,81.3,32,84.0,20.0
+Surgery/Vascular/Intermediate,77.6,14,79.4,24.2
+Neuro Stepdown,88.0,6,82.1,20.5
+Intensive Care Unit (ICU),72.2,6,91.2,23.3
+PACU,83.3,3,87.7,22.4
+Surgery/Trauma,79.5,2,81.7,25.6
+Medicine,77.5,2,94.5,27.1
