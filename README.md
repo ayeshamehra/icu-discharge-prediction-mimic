@@ -2,7 +2,7 @@
 
 Predicting whether an ICU patient will be discharged or die, using real clinical EHR data from the MIMIC-IV database and a three-stage machine learning pipeline.
 
-**Best model: Random Forest — ROC-AUC 0.909, F1 0.934**
+**Best model: Random Forest - ROC-AUC 0.909, F1 0.934**
 
 ---
 
@@ -30,11 +30,11 @@ Raw Data (131 features)
         ↓
 Preprocessing: imputation, scaling, one-hot encoding → 223 features
         ↓
-Stage 1 — Missingness filter (>60% missing removed) → 137 features
+Stage 1 - Missingness filter (>60% missing removed) → 137 features
         ↓
-Stage 2 — Near-zero variance filter → 79 features
+Stage 2 - Near-zero variance filter → 79 features
         ↓
-Stage 3 — High correlation filter (|r| > 0.95) → 69 features
+Stage 3 - High correlation filter (|r| > 0.95) → 69 features
         ↓
 Elastic Net embedded selection (alpha sweep) → 30 features
         ↓
@@ -45,7 +45,7 @@ Elastic Net embedded selection (alpha sweep) → 30 features
 
 ## Feature Selection: Why Elastic Net?
 
-Standard LASSO (L1) arbitrarily drops one variable from correlated pairs — a problem in clinical data where variables like `sbp_min`, `sbp_max`, and `sbp_mean` are correlated but all clinically meaningful.
+Standard LASSO (L1) arbitrarily drops one variable from correlated pairs - a problem in clinical data where variables like `sbp_min`, `sbp_max`, and `sbp_mean` are correlated but all clinically meaningful.
 
 Elastic Net combines L1 (sparsity) + L2 (grouping effect), retaining correlated clinical variables together. An alpha sweep across 6 values selected **α = 0.01**, reducing 69 → 30 features while maintaining AUC within 0.005 of maximum.
 
@@ -63,7 +63,7 @@ Elastic Net combines L1 (sparsity) + L2 (grouping effect), retaining correlated 
 | Decision Tree | 0.782 | 0.977 | 0.780 | 0.867 | 0.868 |
 | Linear Regression* | 0.927 | 0.927 | 0.998 | 0.961 | 0.897 |
 
-*Linear Regression F1 is inflated due to threshold behaviour — ROC-AUC is the appropriate metric here
+*Linear Regression F1 is inflated due to threshold behaviour - ROC-AUC is the appropriate metric here
 
 All models trained on 80% split, evaluated on stratified 20% hold-out. Class imbalance handled via `class_weight='balanced'` (no synthetic oversampling).
 
@@ -73,8 +73,8 @@ All models trained on 80% split, evaluated on stratified 20% hold-out. Class imb
 
 - **Random Forest** achieved the best AUC (0.909) and F1 (0.934), capturing non-linear interactions between GCS scores, respiratory rate, and ICU unit type
 - **Feature selection reduced dimensionality by 87%** (223 → 30) with no meaningful loss in predictive performance
-- **False positives are the critical error** in this context — predicting discharge for a patient who dies is clinically dangerous. Logistic Regression produced the fewest (228 vs Random Forest's 337), highlighting the importance of threshold calibration before any clinical deployment
-- Race variables (race_UNKNOWN, race_UNABLE TO OBTAIN) were selected by Elastic Net — likely capturing documentation patterns rather than biological signal, raising fairness and generalisability concerns
+- **False positives are the critical error** in this context - predicting discharge for a patient who dies is clinically dangerous. Logistic Regression produced the fewest (228 vs Random Forest's 337), highlighting the importance of threshold calibration before any clinical deployment
+- Race variables (race_UNKNOWN, race_UNABLE TO OBTAIN) were selected by Elastic Net - likely capturing documentation patterns rather than biological signal, raising fairness and generalisability concerns
 
 ---
 
@@ -146,4 +146,4 @@ python elastic_net_pipeline_github.py
 
 ---
 
-*Data source: MIMIC-IV — de-identified clinical data. Access requires credentialed PhysioNet account.*
+*Data source: MIMIC-IV - de-identified clinical data. Access requires credentialed PhysioNet account.*
