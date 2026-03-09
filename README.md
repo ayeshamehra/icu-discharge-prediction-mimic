@@ -122,9 +122,33 @@ pip install -r requirements.txt
 
 # 4. Run the pipeline
 python elastic_net_pipeline_github.py
+
+# 5. Run the SQL analysis
+python mimic_sql_analysis.py
 ```
 
 > **Note:** MIMIC-IV access requires completing CITI training and signing a data use agreement via [PhysioNet](https://physionet.org/content/mimiciv/). The dataset is not included in this repository.
+
+---
+
+## SQL Analysis
+
+Clinical insights were extracted from the dataset using SQL queries via SQLite (compatible with PostgreSQL syntax).
+
+**Queries run:**
+- Overall ICU mortality rate
+- Mortality rate by ICU care unit
+- Average age by outcome
+- Mortality rate by gender
+- High-risk elderly patient deaths (age ≥65) by ICU unit
+- Mortality rate by insurance type
+
+![SQL Insights](outputs_sql/sql_clinical_insights.png)
+
+**Key SQL findings:**
+- Surgery/Trauma units had the highest mortality (42.86%)
+- Patients who died were on average 5.5 years older than those discharged
+- Uninsured/unknown insurance patients had disproportionately high mortality (21.66%)
 
 ---
 
